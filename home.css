@@ -26,8 +26,7 @@ body {
 }
 
 #nav a:hover{
-  color:#009999;
-  background-color:#FFFFFF;
+  border-bottom:3px solid #FFFFFF;
 }
 
 #nav li {
