@@ -11,7 +11,11 @@ body {
   font-size:2em;
   text-align:center;
   color:#FFFFFF;
-  display:fixed;
+  position:fixed;
+  	top:0;
+  	left:0;
+  width:100%;
+  z-index:10;
 }
 
 #header h1 { margin: 0 ;
@@ -47,8 +51,10 @@ body {
 }
 
 .content{
-	margin: 10px;
+	position: relative;
+	margin: 130px 40px 0px 40px;
   font-family:'Open Sans',Sans-Serif;
+  text-align:justify;
   
   
 }
@@ -77,4 +83,16 @@ body {
     column-count: 2;
   margin:0 400px 0 400px;
   text-align:center;
+}
+
+.bottomBar {
+
+	background-color:#009999;
+  	font-family:'Roboto',Verdana;
+  	font-weight:900; 
+  	font-size:2em;
+  	text-align:center;
+  	color:#FFFFFF;
+  	display:bottom;
+	height: 30px;
 }
