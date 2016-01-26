@@ -96,6 +96,17 @@ body {
   z-index: 20;
 }
 
+
+.logged{
+
+  float:left;
+  margin:0 5px 20px 0;
+  position:relative;
+  z-index: 20;
+  font-weight:400; 
+  font-size:20px;
+}
+
 .logout a {   font-weight:400; 
                 font-size:20px;
 
