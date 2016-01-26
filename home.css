@@ -96,10 +96,26 @@ body {
   z-index: 20;
 }
 
+<<<<<<< HEAD
 .logout a {   
 	text-decoration: none;
 	font-weight:400; 
     font-size:20px;
+=======
+
+.logged{
+
+  float:left;
+  margin:0 5px 20px 0;
+  position:relative;
+  z-index: 20;
+  font-weight:400; 
+  font-size:20px;
+}
+
+.logout a {   font-weight:400; 
+                font-size:20px;
+>>>>>>> 359b3c38ce61965dcf2b5f451352297b73c04f9a
 
 }
 
