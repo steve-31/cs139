@@ -10,16 +10,7 @@
 </head>
 <body>
   <div id="header" style="height:120px;">
-   
-      <img src="MagikListLogo.jpg" height="70px" alt="MagikList Logo">
-   <div id="nav">
-      <ul>
-		<li> <a href="index.html">Home</a> </li>
-		<li> <a href="registration.html">Sign up</a> </li>
-		<li> <a href="login.html">Login</a> </li>
-      </ul>
-   </div>
-      
+      <?php include 'header.php'; ?> 
   </div>
   
   <div class="content">

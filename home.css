@@ -56,8 +56,7 @@ body {
 	margin: 130px 40px 0px 40px;
   font-family:'Open Sans',Sans-Serif;
   text-align:justify;
-  
-  
+
 }
 
 #login{
@@ -84,6 +83,7 @@ body {
     column-count: 2;
   margin:0 400px 0 400px;
   text-align:center;
+
 }
 
 /* my lists page specific css */
@@ -96,16 +96,11 @@ body {
   z-index: 20;
 }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 89f9f4ec21a954929792da8476ade97c34c6947f
 .logout a {   
 	text-decoration: none;
 	font-weight:400; 
     font-size:20px;
-<<<<<<< HEAD
-=======
     color: #FFFFFF
 }
 .logout a:hover{
@@ -147,7 +142,6 @@ body {
     padding:0;
     
 }
->>>>>>> 89f9f4ec21a954929792da8476ade97c34c6947f
 
 .logged {
 
@@ -159,15 +153,15 @@ body {
   font-size:20px;
 }
 
-<<<<<<< HEAD
+
 .logout a {   font-weight:400; 
                 font-size:20px;
-=======
+
 .usercontent{
 	position: relative;
 	margin: 60px 40px 0px 40px;
   font-family:'Open Sans',Sans-Serif;
->>>>>>> 89f9f4ec21a954929792da8476ade97c34c6947f
+
 }
 
 /* **/
@@ -187,13 +181,10 @@ body {
 	align:center;
 	display: inline-block;
 	position:fixed;
-	
-	
+
 }
 
 #recent {
-	
-	
 	display:inline-block;
 	align: center;
 }
@@ -209,5 +200,4 @@ body {
 
 a .recentused:hover {
 	border: 1px solid red;
-	
 }
