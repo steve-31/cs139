@@ -13,19 +13,18 @@
 		<div id="header" style="height:120px;">
    		<?php include 'header.php' ; ?>
   		</div>
-  		<div class="content">
+  		<div class="content fadein">
   			<div id="login">
-				<h1 class="title">Login</h1>
+  			<br>
 				<form action="#" method="post">
-					Username:<br>
-					<input type="text" name="username"><br>
-					Password: <br>
-					<input type="password" name="password"><br>
+					<input type="text" name="username" placeholder="Username"><br>
+					<input type="password" name="password" placeholder="Password"><br>
   		
-  					<input type="submit" value="Submit">
+  					<button class="loginButton" type="submit">Login</button>
 				</form>
 			</div>
 		</div>
+		<?php include 'footer.php'; ?>
 	</body>
 </html>
 
