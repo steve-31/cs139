@@ -15,7 +15,7 @@
       <?php include 'header.php'; ?> 
   </div>
   
-  <div class="content">
+  <div class="content fadein">
 		<div class="description">
 			<ul>
 				<li> Simple, clean to do list application</li>
