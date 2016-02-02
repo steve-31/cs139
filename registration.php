@@ -6,6 +6,7 @@
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,900' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="home.css">
+		<script type="text/javascript" src="script.js"></script>
 	</head>
   <?php 
       include 'encrypt.php' ;
