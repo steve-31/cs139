@@ -105,43 +105,51 @@
 	<div id="header" style="height:120px;">
     <?php include 'header.php' ; ?>    
     </div>
-    <div class="content">
+    <div class="content fadein">
     
        <div id="form">
 			<h1 class="title">Register</h1>
-				<form action="registration.php" method="post">
-			   <p>
-  			Title: <span style="color:red;"> <?php echo $titlerr ; ?> <span><br>
-  			<select name="title" >
-  				<option value=""></option>
-  				<option value="Mr">Mr</option>
-  				<option value="Mrs">Mrs</option>
-  				<option value="Master">Master</option>
-  				<option value="Miss">Miss</option>
-  				<option value="Ms">Ms</option>
-  				<option value="Dr">Dr</option>
-  				<option value="Prof">Prof.</option>
-			</select><br>
-			</p>
-			<p>
-  		  First name: <span style="color:red;"> <?php echo $firstNamerr ; ?>  </span> <br>
-  			<input type="text" name="firstname" maxlength="20"  placeholder="First name" >
-  			</p>
-  			<p>
-  			Surname: <span style="color:red;"> <?php echo $surnamerr ; ?> <span> <br>
-  			<input type="text" name="surname" maxlength="20"  placeholder="Surname"></p>
-  			<p style="padding-top:160px;">
-  			Email:<span style="color:red;"> <?php echo $emailerr ; ?> <span> <br>
-  			<input type="email" name="email"  placeholder="Email address"></p>
-  			<p>Username:<span style="color:red;"> <?php echo $usernamerr  ; ?> <span> <br>
-			<input type="text" name="username" maxlength="20"  placeholder="Username"></p>
-			<p>Password:<span style="color:red;" > <?php echo $passworderr ?> <span> <br> 
-			<input type="password" name="password" maxlength="20"  placeholder="Password"></p>
-			<p>Confirm Password:<span style="color:red;"> <?php echo $confirmerr ; ?> <span> <br>
-			<input type="password" name="confirmpassword" maxlength="10"  placeholder="Confirm password"><br></p>
-         
-  			<input type="submit" value="Submit">
+			<form action="registration.php" method="post">
+			<div class="form">  
+  				<span style="color:red;"> <?php echo $titlerr ; ?> <span><br>
+  				<select name="title" >
+  					<option value=""></option>
+  					<option value="Mr">Mr</option>
+  					<option value="Mrs">Mrs</option>
+  					<option value="Master">Master</option>
+  					<option value="Miss">Miss</option>
+  					<option value="Ms">Ms</option>
+  					<option value="Dr">Dr</option>
+  					<option value="Prof">Prof.</option>
+				</select><br>
+				<span style="color:red;"> <?php echo $firstNamerr ; ?>  </span> <br>
+  				<input type="text" name="firstname" maxlength="20"  placeholder="First Name" >
+  				<br>
+  				<span style="color:red;"> <?php echo $surnamerr ; ?> <span> <br>
+  				<input type="text" name="surname" maxlength="20"  placeholder="Surname">
+  				<br>
+  				<span style="color:red;"> <?php echo $emailerr ; ?> <span> <br>
+  				<input type="email" name="email"  placeholder="email">
+  			</div>
+  			<div class="form">
+  				<span style="color:red;"> <?php echo $usernamerr  ; ?> <span> <br>
+				<input type="text" name="username" maxlength="20"  placeholder="Username">
+				<span style="color:red;" > <?php echo $passworderr ?> <span> <br> 
+				<input type="password" name="password" maxlength="20"  placeholder="Password">
+				<span style="color:red;"> <?php echo $confirmerr ; ?> <span> <br>
+				<input type="password" name="confirmpassword" maxlength="10"  placeholder="Confirm Password"><br>
+			</div>	
+         		<br>
+         		<div class="form">
+         			<input type="checkbox" name="promEmail" checked style="width:30px">I wish to receive promotional emails from MagikList<br>
+				<input type="checkbox" name="notifEmail" checked style="width:30px">I wish to receive notification emails from MagikList about my upcoming tasks
+			</div>
+			<br>
+         			
+         		</div>
+  			<button class="loginButton" type="submit">Register</button>
 		</form>
 	</div>
+	<?php include 'footer.php' ; ?> 
 	</body>
 </html>
