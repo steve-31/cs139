@@ -137,7 +137,7 @@
 				<span style="color:red;" > <?php echo $passworderr ?> <span> <br> 
 				<input type="password" name="password" maxlength="20"  placeholder="Password">
 				<span style="color:red;"> <?php echo $confirmerr ; ?> <span> <br>
-				<input type="password" name="confirmpassword" maxlength="10"  placeholder="Confirm Password"><br>
+				<input type="password" name="confirmpassword" maxlength="20"  placeholder="Confirm Password"><br>
 			</div>	
          		<br>
          		<div class="form">
