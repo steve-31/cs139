@@ -146,9 +146,10 @@
 			</div>
 			<br>
          			
-         		</div>
+         		
   			<button class="loginButton" type="submit">Register</button>
-		</form>
+			</form>
+		</div>
 	</div>
 	<?php include 'footer.php' ; ?> 
 	</body>
