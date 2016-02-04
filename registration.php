@@ -111,7 +111,7 @@
 			<h1 class="title">Register</h1>
 			<form action="registration.php" method="post">
 			<div class="form">  
-  				<span style="color:red;"> <?php echo $titlerr ; ?> <span><br>
+  				<span style="color:red;"> <?php echo $titlerr ; ?> <span>
   				<select name="title" >
   					<option value=""></option>
   					<option value="Mr">Mr</option>
@@ -122,13 +122,13 @@
   					<option value="Dr">Dr</option>
   					<option value="Prof">Prof.</option>
 				</select><br>
-				<span style="color:red;"> <?php echo $firstNamerr ; ?>  </span> <br>
+				<span style="color:red;"> <?php echo $firstNamerr ; ?>  </span>
   				<input type="text" name="firstname" maxlength="20"  placeholder="First Name" >
   				<br>
-  				<span style="color:red;"> <?php echo $surnamerr ; ?> <span> <br>
+  				<span style="color:red;"> <?php echo $surnamerr ; ?> <span>
   				<input type="text" name="surname" maxlength="20"  placeholder="Surname">
   				<br>
-  				<span style="color:red;"> <?php echo $emailerr ; ?> <span> <br>
+  				<span style="color:red;"> <?php echo $emailerr ; ?> <span>
   				<input type="email" name="email"  placeholder="email">
   			</div>
   			<div class="form">
