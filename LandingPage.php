@@ -10,34 +10,70 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script type="text/javascript" src="script.js"></script>
 </head>
-
+	<?php include 'verifySession.php' ; ?>
 <body>
-
-  <div id="header" style="height:50px;">
-      <img id="logo" src="MagikListBolt.jpg" height="50px" alt="MagikList Logo">
-       <div class="logout"> <a href="#">Logout</a> </div>
-       <div id="usermenu">
-      <ul>
-		<li> <a href="LandingPage.html">Home</a> </li>
-		<li> <a href="#">Notifications</a> </li>
-		<li> <a href="#">My Lists</a> </li>
-      </ul>
-   </div>
-  </div>
+	<?php session_start();
+	include 'userHeader.php' ;
+	include 'database.php'?>
 
   
+  
   <div class="usercontent fadein">
-		<h1 class="title"> Welcome "current username"</h1>
+		<h1 class="title"> Welcome <?php echo $_SESSION['username']; ?></h1>
 		<div class="left">
 			<h2>All Lists</h2>
 				<ul class="lists">
-					<li>Home<li>
-						<ul>
-							<li>shopping List</li>
-							<li>Housework</li>
-						</ul>
-					<li>Work</li>				
-				
+					<li>Home</li>
+							<ul>
+					<?php 
+						$db = new SQLite3('todo.db');
+						
+						$query1 = "SELECT UserID FROM users WHERE Username = '$_SESSION[username]'" ;
+                    	$_SESSION['User_ID'] = $db->querySingle($query1) ;
+						
+						$query2 = "SELECT Name FROM Lists WHERE UserID = '$_SESSION[User_ID]' AND Category = 'Home'" ;
+                    	$result = $db->query($query2) ;
+                    	
+                    	
+                    	
+                    	while(($row = $result->fetchArray())) {
+							echo "<a id='newList' href='generateList.php'><li>".$row['Name']."</li></a>";
+						}
+					?>
+					</ul>
+					
+					<li>Work</li>
+						<ul>				
+						<?php
+						
+						$query2 = "SELECT Name FROM Lists WHERE UserID = '$_SESSION[User_ID]' AND Category = 'Work'" ;
+                    	$result = $db->query($query2) ;
+                    	
+                    	
+                    	
+                    	while(($row = $result->fetchArray())) {
+							echo "<a id='newList' href='generateList.php'><li>".$row['Name']."</li></a>";
+						}
+						?>
+					</ul>
+					
+					<li>Other</li>
+						<ul>				
+						<?php
+						
+						$query2 = "SELECT Name FROM Lists WHERE UserID = '$_SESSION[User_ID]' AND Category = 'Other'" ;
+                    	$result = $db->query($query2) ;
+                    	
+                    	
+                    	
+                    	while(($row = $result->fetchArray())) {
+							echo "<a id='newList' href='generateList.php'><li>".$row['Name']."</li></a>";
+						}
+						?>
+					</ul>
+					<br><strong>
+					<a id="newList" href="#"><li>+ CREATE NEW LIST</li></strong></a>
+					
 				</ul> 
 	
 		</div>
@@ -45,27 +81,32 @@
 		<div class="right">
 			<h2>My Recent Lists</h2>
 
-						<a href="#"><div class="recentused">
-		
-							</div></a>
-						<a href="#"><div class="recentused">
-		
-							</div></a>
-						<a href="#"><div class="recentused">
-		
-							</div></a>
+					<?php
+						$query5 = "SELECT Name FROM Lists WHERE UserID = '$_SESSION[User_ID]' ORDER BY lastEdit DESC, Name ASC LIMIT 1" ;
+                    	$result3 = $db->querySingle($query5) ;
+                    	$lasteditquery = "SELECT lastEdit FROM Lists WHERE UserID = '$_SESSION[User_ID]' ORDER BY lastEdit DESC, Name ASC LIMIT 1" ;
+                    	$lastedit = $db->querySingle($lasteditquery) ;
+                    	
+						echo "<strong><a href='generateList.php'><div class='recentused'>".$result3." <span class='lastedit'>Last Edited: ". $lastedit ."</span></div></a></strong>";
+						
+						$query6 = "SELECT Name FROM Lists WHERE UserID = '$_SESSION[User_ID]' ORDER BY lastEdit DESC, Name ASC LIMIT 1 OFFSET 1" ;
+                    	$result4 = $db->querySingle($query6) ;
+                    	$lasteditquery = "SELECT lastEdit FROM Lists WHERE UserID = '$_SESSION[User_ID]' ORDER BY lastEdit DESC, Name ASC LIMIT 1 OFFSET 1" ;
+                    	$lastedit = $db->querySingle($lasteditquery) ;
+                    	
+						echo "<strong><a href='generateList.php'><div class='recentused'>".$result4." <span class='lastedit'>Last Edited: ". $lastedit ."</span></div></a></strong>";
+						
+						$query7 = "SELECT Name FROM Lists WHERE UserID = '$_SESSION[User_ID]' ORDER BY lastEdit DESC, Name ASC LIMIT 1 OFFSET 2" ;
+                    	$result5 = $db->querySingle($query7) ;
+                    	$lasteditquery = "SELECT lastEdit FROM Lists WHERE UserID = '$_SESSION[User_ID]' ORDER BY lastEdit DESC, Name ASC LIMIT 1 OFFSET 2" ;
+                    	$lastedit = $db->querySingle($lasteditquery) ;
+                    	
+						echo "<strong><a href='generateList.php'><div class='recentused'>".$result5." <span class='lastedit'>Last Edited: ". $lastedit ."</span></div></a></strong>";
+					?>
 	
 		</div>
   </div>
-  <footer class="bottomBar">
-  		<div id="nav">
-      <ul>
-		<li> <a href="#">Contact Us</a> </li>
-		 | <li>©Steve&Sylvester 2016</li>
-      </ul>
-   </div>
-  </footer>
-  
+  <?php include 'footer.php' ; ?>
 	</body>
 
 </html>
