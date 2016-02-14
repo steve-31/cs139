@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Register</title>
+		<title>MagikList | Register</title>
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,900' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="home.css">
@@ -11,10 +11,12 @@
 	</head>
   <?php 
       include 'encrypt.php' ;
-      include 'db_connect.php' ;
+      include 'database.php' ;
       // validate information 
       $titlerr = $firstNamerr = $surnamerr = $emailerr = $usernamerr = $passworderr = $confirmerr = " ";
       $title = $firstName = $surname = $email = $username = $password = " ";
+      $tick1 = $_POST["promEmail"] ;
+      $tick2 = $_POST["notifEmail"] ;
       // if form is submitted
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //check that fields are not empty first
@@ -31,19 +33,16 @@
             $valid2 = False ;
         }
         else { $firstName = test_input($_POST["firstname"]) ;   $valid2 = True ; }
-
         if ( empty($_POST["surname"])||!preg_match("/^[a-zA-Z-]+$/",$_POST["surname"]) ) {
           $surnamerr = "Please enter a surname" ;
           $valid3 = False ;
         }
         else { $surname = test_input($_POST["surname"]) ;   $valid3 = True ;}
-
         if (empty($_POST["email"])||!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
           $emailerr = "Please enter a valid email address" ;
             $valid4 = False ;
         }
         else { $email = test_input($_POST["email"]) ;   $valid4 = True ;}
-
         if (empty($_POST["username"])||!preg_match("/^[a-zA-Z-._0-9]+$/",$_POST["username"])) {
           $usernamerr = "Please enter a valid username which can contain letters,numbers and the following special characters: -, ., _" ;
             $valid5 = False ;
@@ -55,51 +54,34 @@
           $valid6 = False ;
         }
         else { $password = $_POST["password"] ;   $valid6 = True ; }
-
             if ($password == $_POST["confirmpassword"]) {
                 $valid7 = True ;
             }
-
             else { $confirmerr = "Please enter the same password in the confirm password field" ;   $valid7 = False ;}
-
-
             // if all data entered is valid
             if ($valid1 && $valid2 && $valid3 && $valid4 && $valid5 && $valid6 && $valid7) {
                         // encrypt the password 
                         $hash_value = hash1($password) ;
                         //connect to database
-                          try {
-                               $conn = new PDO("mysql:host=$servername;dbname=$database", $database_username, $database_password);
-                               // set the PDO error mode to exception
-                               $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                          }
-                          catch(PDOException $e){
-                               echo "Connection failed: " . $e->getMessage();
-                          }
+			            $db = new Database() ;
                         //insert data into database
-                        $sql = "INSERT INTO users(Title,Firstname,Surname,Username,EmailAddress,Password)  VALUES ('$title','$firstName','$surname','$username','$email','$hash_value')" ;
-                        $conn->query($sql);
+                        $query = "INSERT INTO users(UserID, Title,FirstName,Surname,Email,Username,Password,PromEmail,NotifEmail)  VALUES(NULL,'$title','$firstName','$surname','$email','$username','$hash_value','$tick1','$tick2')" ;
+                        $db->exec($query) ;
                         echo "
                              <script>
-
-                              alert('Registration has been successful! Please go to the homepage to login ');
-
+                              alert('Registration has been successful! Please now login');
                              </script> " ;
-                        $conn = null;
-                        echo "<script> window.location.assign('index.php'); </script>";
-                        exit;
+                        echo "<script> window.location.assign('login.php'); </script>";
+                        exit; 
                   }
-
       }
           
-
             function test_input($data) {
               $data = trim($data);
               $data = stripslashes($data);
               $data = htmlspecialchars($data);
               return $data;
           }
-
   ?>
 	<body>
 	<div id="header" style="height:120px;">
