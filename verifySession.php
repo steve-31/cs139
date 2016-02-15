@@ -1,8 +1,8 @@
-<?php
-	$user = $_SESSION[username];
-	echo $user;
-  if($user != NULL) {
-  } else {
-    //header('Location:index.php');
-  }
+<?PHP
+session_start();
+
+if (!(isset($_SESSION['username']))) {
+		header ("Location: login.php");
+}
+
 ?>
